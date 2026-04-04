@@ -1,6 +1,9 @@
 import { getAllPosts } from '@/lib/posts'
+import type { MetadataRoute } from 'next'
 
-export default function sitemap() {
+export const dynamic = 'force-static'
+
+export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts()
   const baseUrl = 'https://kaiweizhang.com'
 
@@ -14,7 +17,7 @@ export default function sitemap() {
     ...posts.map((post) => ({
       url: `${baseUrl}/blog/${post.slug})}`,
       lastModified: new Date(post.date),
-      changeFrequency: 'monthly',
+      changeFrequency: 'monthly' as const,
       priority: 0.8,
     })),
   ]
