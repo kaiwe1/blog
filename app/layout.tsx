@@ -13,6 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="baidu-site-verification" content="codeva-rM9NT8JnNc" />
+      </head>
       <body>{children}</body>
     </html>
   )

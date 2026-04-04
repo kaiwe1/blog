@@ -38,7 +38,7 @@ export function getPostBySlug(slug: string): Post {
   
   const { data, content } = matter(fileContents) // TODO: type definition
   return {
-    slug,
+    slug: realSlug,
     title: data.title,
     date: data.date,
     excerpt: data.excerpt,
