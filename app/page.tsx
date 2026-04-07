@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { GitHubIcon } from '@/components/icons/github-icon'
 import { getAllPosts } from '@/lib/posts'
 
 export default function Home() {
@@ -7,9 +8,20 @@ export default function Home() {
   return (
     <>
       <main className="max-w-xl mx-auto px-6 py-16">
-        <header className="mb-12">
-          <h2 className="text-2xl font-bold mb-2">about me</h2>
-          <p className="text-neutral-600 text-lg">til</p>
+        <header className="mb-12 flex items-start justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-bold mb-2">about me</h2>
+            <p className="text-neutral-600 text-lg">til</p>
+          </div>
+          <a
+            href="https://github.com/kaiwe1"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Visit kaiwe1 on GitHub"
+            className="text-neutral-500 transition-colors duration-200 hover:text-neutral-900"
+          >
+            <GitHubIcon className="h-7 w-7" />
+          </a>
         </header>
         <section>
           {posts.length === 0 ? (
