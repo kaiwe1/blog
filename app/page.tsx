@@ -10,8 +10,9 @@ export default function Home() {
       <main className="max-w-xl mx-auto px-6 py-16">
         <header className="mb-12 flex items-start justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-bold mb-2">about me</h2>
+            <h2 className="text-2xl font-bold mb-2">about</h2>
             <p className="text-neutral-600 text-lg">til</p>
+            <p className="text-neutral-600 text-lg">contact: me@kaiweizhang.com</p>
           </div>
           <a
             href="https://github.com/kaiwe1"
