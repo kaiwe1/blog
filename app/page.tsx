@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
+import { PostTaxonomy } from '@/components/post-taxonomy'
 
 export default function Home() {
   const posts = getAllPosts()
@@ -21,18 +22,18 @@ export default function Home() {
               {posts.map((post) => (
                 <li
                   key={post.slug}
-                  className="mb-7 pb-7 border-b border-neutral-200 last:border-0 last:mb-0 last:pb-0 hover:border-neutral-400 hover:border transition-colors duration-200"
+                  className="mb-7 border-b border-neutral-200 last:border-0 last:mb-0"
                 >
-                  <Link href={`/blog/${post.slug}`} className="text-inherit no-underline">
-                    <div className="flex items-baseline gap-3 mb-3">
-                      <h3 className="text-xl font-semibold text-neutral-700">
+                  <div className="flex items-baseline gap-3 mb-3">
+                    <h3 className="text-xl font-semibold text-neutral-700">
+                      <Link href={`/blog/${post.slug}`} className="text-inherit no-underline">
                         {post.title}
-                      </h3>
-                      <p className="text-neutral-500 text-sm">{post.date}</p>
-                    </div>
-                    <p className="text-neutral-700">{post.excerpt}</p>
-                  </Link>
-
+                      </Link>
+                    </h3>
+                    <p className="text-neutral-500 text-sm">{post.date}</p>
+                  </div>
+                  <p className="text-neutral-700">{post.excerpt}</p>
+                  <PostTaxonomy series={post.series} tags={post.tags} />
                 </li>
               ))}
             </ul>
