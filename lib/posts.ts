@@ -46,11 +46,11 @@ export interface Post {
 
 export function slugifyTaxonomy(value: string): string {
   return value
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '')
+    .toLowerCase()                    // 1. Convert to lowercase
+    .trim()                           // 2. Remove leading/trailing whitespace
+    .replace(/[^a-z0-9]+/g, '-')      // 3. Replace non-alphanumeric chars with dashes
+    .replace(/-+/g, '-')              // 4. Collapse multiple dashes into one
+    .replace(/^-|-$/g, '')            // 5. Remove leading/trailing dashes
 }
 
 function normalizeSeries(series: RawSeries | null | undefined): PostSeries | undefined {

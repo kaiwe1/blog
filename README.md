@@ -83,6 +83,7 @@ tags: ["introduction", "welcome"]
 - `app/`: Next.js app router pages
 - `components/`: Reusable React components
 - `content/posts/`: MDX blog posts
+- `docs/`: Documentation and planning files
 - `lib/`: Utility functions for post processing
 - `tests/`: Test files
 - `types/`: TypeScript type definitions
