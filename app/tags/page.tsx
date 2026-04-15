@@ -6,8 +6,14 @@ export default function TagsIndexPage() {
 
   return (
     <main className="max-w-xl mx-auto px-6 py-12">
-      <h1 className="text-3xl font-bold text-neutral-900">Tags</h1>
-      <p className="mt-3 text-neutral-600">Browse posts grouped by tag.</p>
+      <Link href="/" className="text-sm text-neutral-600 underline underline-offset-4">
+        Back to home
+      </Link>
+
+      <header className="mt-6">
+          <h1 className="text-3xl font-bold text-neutral-900">Tags</h1>
+        <p className="mt-3 text-neutral-600">Browse posts grouped by tag.</p>
+      </header>
 
       <ul className="mt-8 space-y-4">
         {tags.map((tag) => (

@@ -22,14 +22,14 @@ export default function Home() {
               {posts.map((post) => (
                 <li
                   key={post.slug}
-                  className="mb-7 pb-7 border-b border-neutral-200 last:border-0 last:mb-0 last:pb-0 hover:border-neutral-400 hover:border transition-colors duration-200"
+                  className="mb-7 border-b border-neutral-200 last:border-0 last:mb-0"
                 >
                   <div className="flex items-baseline gap-3 mb-3">
-                    <Link href={`/blog/${post.slug}`} className="text-inherit no-underline">
-                      <h3 className="text-xl font-semibold text-neutral-700">
+                    <h3 className="text-xl font-semibold text-neutral-700">
+                      <Link href={`/blog/${post.slug}`} className="text-inherit no-underline">
                         {post.title}
-                      </h3>
-                    </Link>
+                      </Link>
+                    </h3>
                     <p className="text-neutral-500 text-sm">{post.date}</p>
                   </div>
                   <p className="text-neutral-700">{post.excerpt}</p>

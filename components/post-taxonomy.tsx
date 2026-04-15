@@ -14,10 +14,9 @@ export function PostTaxonomy({ series, tags }: PostTaxonomyProps) {
       {series ? (
         <div className="flex items-center gap-2">
           <span className="font-medium">Series:</span>
-          <Link href={`/series/${series.slug}`} className="underline decoration-neutral-300 underline-offset-4">
+          <Link href={`/series/${series.slug}`} className="border border-neutral-300 px-2 py-0.5 text-xs font-medium text-neutral-700 no-underline transition-colors hover:border-neutral-500">
             {series.name}
           </Link>
-          <span>Part {series.order}</span>
         </div>
       ) : null}
 
@@ -28,7 +27,7 @@ export function PostTaxonomy({ series, tags }: PostTaxonomyProps) {
             <Link
               key={tag.slug}
               href={`/tags/${tag.slug}`}
-              className="rounded-full border border-neutral-300 px-2 py-0.5 text-xs font-medium text-neutral-700 no-underline transition-colors hover:border-neutral-500"
+              className="border border-neutral-300 px-2 py-0.5 text-xs font-medium text-neutral-700 no-underline transition-colors hover:border-neutral-500"
             >
               {tag.name}
             </Link>

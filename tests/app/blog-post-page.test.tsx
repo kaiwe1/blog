@@ -85,7 +85,7 @@ describe('blog post page', () => {
     expect(screen.getByRole('link', { name: /^mdx$/i })).toHaveAttribute('href', '/tags/mdx')
     expect(screen.getByRole('heading', { name: /this series/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /next steps/i })).toHaveAttribute('href', '/blog/next-steps')
-    expect(screen.getAllByText(/part 1/i)).toHaveLength(2)
+    expect(screen.getAllByText(/part 1/i)).toHaveLength(1)
     expect(screen.getByText(/current/i)).toBeInTheDocument()
   })
 })

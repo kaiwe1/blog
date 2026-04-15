@@ -24,12 +24,12 @@ export default async function BlogPost({ params }: Props) {
     <main className="max-w-xl mx-auto px-6 py-12">
       <Link
         href="/"
-        className="inline-block mb-8 text-neutral-600 text-sm no-underline hover:underline"
+        className="text-sm text-neutral-600 underline underline-offset-4"
       >
-        ← Back to home
+        Back to home
       </Link>
 
-      <article>
+      <article className='mt-6'>
         <header className="mb-10">
           <h1 className="text-3xl font-bold mb-2 leading-relaxed">{post.title}</h1>
           <p className="text-neutral-500 text-sm">{post.date}</p>

@@ -45,6 +45,6 @@ describe('home page', () => {
     expect(screen.getByRole('link', { name: /blog basics/i })).toHaveAttribute('href', '/series/blog-basics')
     expect(screen.getByRole('link', { name: /next\.js/i })).toHaveAttribute('href', '/tags/next-js')
     expect(screen.getByRole('link', { name: /^mdx$/i })).toHaveAttribute('href', '/tags/mdx')
-    expect(screen.getByText(/part 1/i)).toBeInTheDocument()
+    expect(screen.getByText(/Welcome to my new blog built with Next.js SSG and MDX./i)).toBeInTheDocument()
   })
 })
