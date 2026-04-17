@@ -22,14 +22,7 @@ export default async function BlogPost({ params }: Props) {
 
   return (
     <main className="max-w-xl mx-auto px-6 py-12">
-      <Link
-        href="/"
-        className="text-sm text-neutral-600 underline underline-offset-4"
-      >
-        Back to home
-      </Link>
-
-      <article className='mt-6'>
+      <article>
         <header className="mb-10">
           <h1 className="text-3xl font-bold mb-2 leading-relaxed">{post.title}</h1>
           <p className="text-neutral-500 text-sm">{post.date}</p>
