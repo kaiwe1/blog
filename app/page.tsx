@@ -17,16 +17,13 @@ export default function Home() {
               {posts.map((post) => (
                 <li
                   key={post.slug}
-                  className="mb-7 last:mb-0"
+                  className="mb-10 last:mb-0"
                 >
-                  <div className="flex items-baseline gap-3 mb-3">
-                    <h3 className="text-xl font-semibold ">
-                      <Link href={`/blog/${post.slug}`} className="text-inherit no-underline">
-                        {post.title}
-                      </Link>
-                    </h3>
-                    <p className="text-neutral-500 text-sm">{post.date}</p>
-                  </div>
+                  <h3 className="text-xl font-semibold mb-2">
+                    <Link href={`/blog/${post.slug}`} className="text-inherit no-underline">
+                      {post.title}
+                    </Link>
+                  </h3>
                   <p className="text-neutral-700">{post.excerpt}</p>
                   <PostTaxonomy series={post.series} tags={post.tags} />
                 </li>
