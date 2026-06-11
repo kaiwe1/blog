@@ -5,6 +5,7 @@ import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import Link from 'next/link'
 import { PostTaxonomy } from '@/components/post-taxonomy'
+import type { Metadata } from 'next'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -13,6 +14,22 @@ interface Props {
 export function generateStaticParams() {
   const posts = getAllPosts()
   return posts.map((post) => ({ slug: post.slug }))
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params
+  const post = getPostBySlug(slug)
+  return {
+    title: `${post.title} - Kaiwei Zhang`,
+    description: post.excerpt || undefined,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt || undefined,
+      type: 'article',
+      publishedTime: post.date,
+      tags: post.tags.map((t) => t.name),
+    },
+  }
 }
 
 export default async function BlogPost({ params }: Props) {
