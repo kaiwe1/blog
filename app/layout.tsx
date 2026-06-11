@@ -17,6 +17,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="baidu-site-verification" content="codeva-rM9NT8JnNc" />
+        <link rel="preconnect" href="https://giscus.app" />
+        <link rel="preconnect" href="https://api.github.com" />
+        <link rel="preconnect" href="https://avatars.githubusercontent.com" />
       </head>
       <body>
         <Navigation />

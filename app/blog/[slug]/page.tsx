@@ -5,6 +5,7 @@ import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import Link from 'next/link'
 import { PostTaxonomy } from '@/components/post-taxonomy'
+import { Giscus } from '@/components/giscus'
 import type { Metadata } from 'next'
 
 interface Props {
@@ -57,6 +58,11 @@ export default async function BlogPost({ params }: Props) {
             }}
           />
         </div>
+        
+        {/* Giscus 评论系统 */}
+        <section className="mt-12 border-t border-neutral-200 pt-8">
+          <Giscus />
+        </section>
 
         {post.series ? (
           <section className="mt-12 border-t border-neutral-200 pt-8">
