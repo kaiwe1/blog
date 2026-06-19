@@ -11,7 +11,7 @@ export default function Home() {
         <section>
           {/* Post List */}
           {posts.length === 0 ? (
-            <p className="text-neutral-400">No posts yet. Check back soon!</p>
+            <p className="text-text-muted">No posts yet. Check back soon!</p>
           ) : (
             <ul className="space-y-0 list-none">
               {posts.map((post) => (
@@ -24,7 +24,7 @@ export default function Home() {
                       {post.title}
                     </Link>
                   </h3>
-                  <p className="text-neutral-700">{post.excerpt}</p>
+                  <p className="text-text-secondary">{post.excerpt}</p>
                   <PostTaxonomy series={post.series} tags={post.tags} />
                 </li>
               ))}

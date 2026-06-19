@@ -1,17 +1,27 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { useTheme } from '@/components/theme-provider'
 
 export function Giscus() {
   const ref = useRef<HTMLDivElement>(null)
+  const { theme } = useTheme()
 
   useEffect(() => {
     const currentRef = ref.current
     if (!currentRef) return
 
     const loadGiscus = () => {
-      // 避免重复加载
-      if (currentRef.querySelector('iframe')) return
+      if (currentRef.querySelector('iframe')) {
+        const iframe = currentRef.querySelector('iframe')
+        if (iframe) {
+          iframe.contentWindow?.postMessage(
+            { giscus: { setConfig: { theme } } },
+            'https://giscus.app'
+          )
+        }
+        return
+      }
 
       const script = document.createElement('script')
       script.src = 'https://giscus.app/client.js'
@@ -26,13 +36,12 @@ export function Giscus() {
       script.setAttribute('data-reactions-enabled', '1')
       script.setAttribute('data-emit-metadata', '0')
       script.setAttribute('data-input-position', 'bottom')
-      script.setAttribute('data-theme', 'preferred_color_scheme')
+      script.setAttribute('data-theme', theme)
       script.setAttribute('data-lang', 'zh-CN')
 
       currentRef.appendChild(script)
     }
 
-    // 在浏览器空闲时提前加载
     if ('requestIdleCallback' in window) {
       const idleId = window.requestIdleCallback(() => loadGiscus(), { timeout: 2000 })
       return () => window.cancelIdleCallback(idleId)
@@ -40,10 +49,9 @@ export function Giscus() {
       const timerId = setTimeout(loadGiscus, 1000)
       return () => clearTimeout(timerId)
     }
-  }, [])
+  }, [theme])
 
   return (
-    // giscus-theme-css 会在加载时自动处理它的自带 loading 样式
     <div ref={ref} className="min-h-[370px]" />
   )
 }

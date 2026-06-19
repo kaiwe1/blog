@@ -10,11 +10,11 @@ export function PostTaxonomy({ series, tags }: PostTaxonomyProps) {
   if (!series && tags.length === 0) return null
 
   return (
-    <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-neutral-600">
+    <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-text-secondary">
       {series ? (
         <div className="flex items-center gap-2">
           <span className="font-medium">Series:</span>
-          <Link href={`/series/${series.slug}`} className="border border-neutral-300 px-2 py-0.5 text-xs font-medium text-neutral-700 no-underline transition-colors hover:border-neutral-500">
+          <Link href={`/series/${series.slug}`} className="border border-border px-2 py-0.5 text-xs font-medium text-text-secondary no-underline transition-colors hover:border-text-muted">
             {series.name}
           </Link>
         </div>
@@ -27,7 +27,7 @@ export function PostTaxonomy({ series, tags }: PostTaxonomyProps) {
             <Link
               key={tag.slug}
               href={`/tags/${tag.slug}`}
-              className="border border-neutral-300 px-2 py-0.5 text-xs font-medium text-neutral-700 no-underline transition-colors hover:border-neutral-500"
+              className="border border-border px-2 py-0.5 text-xs font-medium text-text-secondary no-underline transition-colors hover:border-text-muted"
             >
               {tag.name}
             </Link>

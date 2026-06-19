@@ -1,22 +1,19 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono, Noto_Sans_SC } from 'next/font/google'
 import './globals.css'
-import { Navigation } from '@/components/nav'
-import { Footer } from '@/components/footer'
+import { Navigation } from '@/components/navigation'
+import { ThemeProvider } from '@/components/theme-provider'
 
-// 无衬线体 -> 用于正文
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
 })
 
-// 等宽字体 -> 用于代码块
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 })
 
-// 中文字体 -> Geist 不覆盖中文时 fallback 到此
 const notoSansSC = Noto_Sans_SC({
   variable: '--font-noto-sans-sc',
   subsets: ['latin'],
@@ -25,8 +22,19 @@ const notoSansSC = Noto_Sans_SC({
 
 export const metadata: Metadata = {
   title: 'Kaiwei Zhang',
-  description: 'tilog',
+  description: 'My Personal Blog. Indie Hacking, Programming and Life.',
 }
+
+const themeScript = `
+(function() {
+  try {
+    var theme = localStorage.getItem('theme');
+    document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+  } catch(e) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})()
+`
 
 export default function RootLayout({
   children,
@@ -34,17 +42,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${notoSansSC.variable}`}>
+    <html lang="zh-CN" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} ${notoSansSC.variable}`}>
       <head>
         <meta name="baidu-site-verification" content="codeva-rM9NT8JnNc" />
         <link rel="preconnect" href="https://giscus.app" />
         <link rel="preconnect" href="https://api.github.com" />
         <link rel="preconnect" href="https://avatars.githubusercontent.com" />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="font-sans">
-        <Navigation />
-        {children}
-        <Footer />
+      <body className="font-sans bg-bg text-text">
+        <ThemeProvider>
+          <Navigation />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
