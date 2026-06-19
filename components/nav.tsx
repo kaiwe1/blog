@@ -12,7 +12,7 @@ export function Navigation() {
   const pathname = usePathname()
 
   return (
-    <nav className="max-w-xl mx-auto px-6 py-6 border-b border-neutral-200">
+    <nav className="max-w-2xl mx-auto px-6 py-6 border-b border-neutral-200">
       {NAV_LINKS.map((link, index) => (
         <span key={link.href}>
           <Link

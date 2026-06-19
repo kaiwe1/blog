@@ -22,7 +22,7 @@ export default async function TagPage({ params }: Props) {
   const posts = getPostsByTagSlug(tagSlug)
 
   return (
-    <main className="max-w-xl mx-auto px-6 py-12">
+    <main className="max-w-2xl mx-auto px-6 py-12">
       <Link href="/tags" className="text-sm text-neutral-600 underline underline-offset-4">
         Back to tags
       </Link>

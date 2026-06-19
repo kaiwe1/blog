@@ -5,7 +5,7 @@ export default function SeriesIndexPage() {
   const series = getAllSeries()
 
   return (
-    <main className="max-w-xl mx-auto px-6 py-12">
+    <main className="max-w-2xl mx-auto px-6 py-12">
       <header>
         <h1 className="text-3xl font-bold text-neutral-900">Series</h1>
         <p className="mt-3 text-neutral-600">Browse posts grouped by series.</p>

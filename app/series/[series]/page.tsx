@@ -21,7 +21,7 @@ export default async function SeriesPage({ params }: Props) {
   const posts = getPostsBySeriesSlug(seriesSlug)
 
   return (
-    <main className="max-w-xl mx-auto px-6 py-12">
+    <main className="max-w-2xl mx-auto px-6 py-12">
       <Link href="/series" className="text-sm text-neutral-600 underline underline-offset-4">
         Back to series
       </Link>

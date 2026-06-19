@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="max-w-xl mx-auto px-6 py-12">
+      <main className="max-w-2xl mx-auto px-6 py-12">
         <section>
           {/* Post List */}
           {posts.length === 0 ? (

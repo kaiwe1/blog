@@ -39,7 +39,7 @@ export default async function BlogPost({ params }: Props) {
   const seriesPosts = post.series ? getPostsBySeriesSlug(post.series.slug) : []
 
   return (
-    <main className="max-w-xl mx-auto px-6 py-12">
+    <main className="max-w-2xl mx-auto px-6 py-12">
       <article>
         <header className="mb-10">
           <h1 className="text-3xl font-bold mb-2 leading-relaxed">{post.title}</h1>

@@ -1,8 +1,7 @@
 @import "tailwindcss";
 @import "highlight.js/styles/github-dark.css";
 
-@layer base {
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
+@theme inline {
+  --font-sans: var(--font-geist-sans), var(--font-noto-sans-sc);
+  --font-mono: var(--font-geist-mono);
 }
