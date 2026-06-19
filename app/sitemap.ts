@@ -3,6 +3,7 @@ import type { MetadataRoute } from 'next'
 
 export const dynamic = 'force-static'
 
+// 站点地图主要用来告诉搜索引擎（如 Google、Bing）你的网站有哪些页面，方便它们更高效地爬取和索引。
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts()
   const tags = getAllTags()
@@ -19,13 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/now`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
