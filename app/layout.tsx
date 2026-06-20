@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Noto_Sans_SC } from 'next/font/google'
 import './globals.css'
 import { Navigation } from '@/components/navigation'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Analytics } from '@vercel/analytics/next'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -55,6 +56,7 @@ export default function RootLayout({
           <Navigation />
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
